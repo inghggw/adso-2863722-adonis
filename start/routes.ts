@@ -10,7 +10,9 @@
 import IniciosController from '#controllers/inicios_controller'
 import router from '@adonisjs/core/services/router'
 import DashboardController from '#controllers/dashboard_controller'
+
 import { middleware } from '#start/kernel'
+import AuthController from '#controllers/auth_controller'
 
 router.get('/', async () => {
   return {
@@ -25,3 +27,5 @@ router.get('/dashboard', [DashboardController, "index"])
 
 
 router.get('inicio', [IniciosController, "index"])
+
+router.post('/login',[AuthController,'login'])
